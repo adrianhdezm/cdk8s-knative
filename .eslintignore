@@ -1,0 +1,14 @@
+# Don't ever lint node_modules
+node_modules
+
+# Don't lint build output
+dist
+
+# Don't lint test config
+jest.config.js
+
+# Don't lint nyc coverage output
+coverage
+
+# cdk8s imported files
+libs

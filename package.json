@@ -1,0 +1,38 @@
+{
+  "name": "cdk8s-knative",
+  "description": "Setting up a k8s cluster using cdk8s",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "upgrade": "npm i cdk8s@latest cdk8s-cli@latest",
+    "format": "prettier \"**/*.*\" --write",
+    "test": "jest --passWithNoTests",
+    "lint": "npm run format && eslint . --ext .ts",
+    "clean": "rimraf dist manifests",
+    "import": "cdk8s import --no-class-prefix --output ./libs",
+    "build": "tsc",
+    "presynth": "npm run clean && npm run import && npm run lint",
+    "synth": "cdk8s synth --output manifests"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.21",
+    "@types/node": "^14.14.35",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "cdk8s-cli": "^1.0.0-beta.10",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.5.4",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "cdk8s": "^1.0.0-beta.10",
+    "constructs": "^3.3.68"
+  }
+}
